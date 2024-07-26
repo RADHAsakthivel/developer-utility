@@ -1,0 +1,16 @@
+{
+  "name": "scripts-utils",
+  "version": "1.0.0",
+  "description": "just for own use ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sakthivel",
+  "license": "ISC",
+  "dependencies": {
+    "JSONStream": "^1.3.5",
+    "event-stream": "^4.0.1",
+    "hari-smart-ui": "^1.0.5"
+  }
+}
