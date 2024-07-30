@@ -1,42 +1,73 @@
 import * as readline from 'readline';
-import * as options from './src/common'
+import * as allOption from './src/common'
+import * as operationOptionEnum from './src/common/operation.enum'
+import { getSourcePath, getDestinationPath } from './src/json-utils';
 
 // Create an interface for reading data from the terminal
 const rl: readline.Interface = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  terminal:true
+  terminal: true
 });
-let selectedIndex:number = 0;
 
-function renderMenu(){
+let currentOperation: string[] = allOption.coreOperation;
+let firstLayerOperation: string;
+let secondLayerOperation: string;
+let selected: number = 0;
+
+const renderOptions = (options: string[]) => {
   console.clear();
-  console.info("select operation you want to use:");
-
-  options.coreOperation.forEach((operation,index) => {
-    if(index === selectedIndex){
-      console.log(`> ${operation}`);
-    }else{
-      console.log(operation);
+  if (firstLayerOperation) console.log(firstLayerOperation)
+  options.forEach((option, index) => {
+    if (index === selected) {
+      console.log(`> ${option}`);
+    } else {
+      console.log(`  ${option}`);
     }
   });
-}
+};
 
 readline.emitKeypressEvents(process.stdin);
-if(process.stdin.isTTY) process.stdin.setRawMode(true);
+if (process.stdin.isTTY) process.stdin.setRawMode(true);
 
 
-process.stdin.on('keypress',(chunk,key)=>{
-  console.log("chunk =>",chunk,"key =>",key);
-})
+const keyPress = (chunk: any, key: any) => {
+  if (key.name == 'up') {
+    selected = (selected === 0) ? currentOperation.length - 1 : selected - 1;
+    renderOptions(currentOperation);
+  } else if (key.name == 'down') {
+    selected = (selected === currentOperation.length - 1) ? 0 : selected + 1;
+    renderOptions(currentOperation);
+  } else if (key.name == 'return') {
+    if (firstLayerOperation == undefined) {
+      firstLayerOperation = currentOperation[selected];
+      assignCurrentOperation(firstLayerOperation);
+      renderOptions(currentOperation);
+    } else if (secondLayerOperation == undefined) {
+      secondLayerOperation = currentOperation[selected];
+      process.stdin.off('keypress', keyPress);
+      handleSecondLayerOperation();
+    }
+  }
+}
 
-// // Prompt the user for input
-// rl.question('Enter you source path: ', (name) => {
-//   console.log(`Hello, ${name}!`);
-// });
+function handleSecondLayerOperation(): void {
+  console.clear();
+  console.log(firstLayerOperation);
+  console.log(secondLayerOperation);
+  if (secondLayerOperation === operationOptionEnum.Json.csvToJson) {
+    getSourcePath();
+    getDestinationPath();
+  }
+}
 
-// rl.question('Enter you destination path: ', (name) => {
-//   console.log(`Hello, ${name}!`);
-// });
+function assignCurrentOperation(selectedOperation: string): void {
+  switch (selectedOperation) {
+    case operationOptionEnum.coreOperation.json:
+      currentOperation = allOption.jsonOperation;
+      break;
+  }
+}
 
-// rl.close();
+renderOptions(currentOperation);
+process.stdin.on('keypress', keyPress)

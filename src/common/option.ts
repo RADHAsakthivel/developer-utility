@@ -8,5 +8,8 @@ export const jsonOperation:string[] = [
 ]
 
 export const coreOperation:string[] = [
-    core.json
+    core.json,
+    "test1",
+    "test2",
+    "test3",
 ] 
