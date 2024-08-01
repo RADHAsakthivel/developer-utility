@@ -1,0 +1,1 @@
+import * as DuConsole from "./console";

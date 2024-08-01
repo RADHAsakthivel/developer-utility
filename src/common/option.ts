@@ -9,7 +9,8 @@ export const jsonOperation:string[] = [
 
 export const coreOperation:string[] = [
     core.json,
-    "test1",
-    "test2",
-    "test3",
+    core.password,
+    core.qr,
+    core.time,
+    core.uuid
 ] 

@@ -2,11 +2,7 @@ import fs from "fs";
 import readLine from "readline";
 import * as readterminal from 'readline';
 import {filePath} from '../common/common';
-import { createFile } from "./create-folder";
-
-// console.log("coreDirectory =>", coreDirectory)
-// const sourcePath = '/home/sakthivel/Downloads/test.csv';
-// const destinationPath = "/home/sakthivel/Downloads/converted.json";
+import { createFile } from "./create-file";
 
 let headding:string[];
 let isEmptyFile = true;
@@ -49,8 +45,7 @@ function convertCsvToJson(sourcePath:string,destinationPath:string){
   })
 }
 
-
-export function getSourcePath(){
+export function getSourcePath():void{
   const rl: readterminal.Interface = readterminal.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -58,11 +53,13 @@ export function getSourcePath(){
   });
   rl.question('Enter the source file path:',(path)=>{
     filePath.sourceDirectory = path;
+    console.log("solution")
     rl.close();
+    getDestinationPath();
   })
 }
 
-export function getDestinationPath(){
+export function getDestinationPath():void{
   const rl: readterminal.Interface = readterminal.createInterface({
     input: process.stdin,
     output: process.stdout,
