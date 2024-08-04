@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
+  "type":"CommonJS",
   "include": ["src/**/*","src/*","./*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }

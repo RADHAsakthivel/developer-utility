@@ -1,12 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const JSONStream = require('JSONStream');
+import * as fs from 'fs';
+import * as JSONStream from 'jsonstream';
 const es = require('event-stream');
-
-// import {fs} from 'fs';
-// import {path} from 'path';
-// import {JSONStream} from 'JSONStream';
-// import {es} from 'event-stream';
 
 // Define the path to your JSON file
 const filePath = 'C:/Users/sakthivel/Downloads/CityInfo_202407191050.json';
@@ -28,7 +22,7 @@ const stringifier = JSONStream.stringify('[', ',', ']');
 let lastId = 0;
 readStream
   .pipe(parser)
-  .pipe(es.mapSync(data => {
+  .pipe(es.mapSync((data:any) => {
     // Remove the 'name' field from each object in the array
     data.Id = ++lastId;
     // delete data.CreatedOn;

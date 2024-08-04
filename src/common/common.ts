@@ -1,2 +1,7 @@
-let sourceDirectory:string;
-let destinationDirectory:string;
+
+let filePath = {
+    sourceDirectory:"",
+    destinationDirectory:""
+}
+
+export {filePath}
