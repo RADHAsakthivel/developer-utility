@@ -7,6 +7,9 @@ class DuConsole{
     log(color:string,data:any){
         console.log(`${color}${data}`);
     }
+    error(...data:any){
+        console.error( `${color.red}`,...data);
+    }    
 }
 
 export const duConsole = new DuConsole();
