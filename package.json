@@ -2,6 +2,18 @@
   "name": "developer-utility",
   "version": "1.0.0",
   "description": "This package is used to convert the csv to json and add,remove data from json file",
+  "keywords": [
+    "json",
+    "csv",
+    "comma seperated file",
+    "csv to json",
+    "convert csv to json",
+    "edit json",
+    "add json property",
+    "edite json",
+    "delete json property",
+    "typescript"
+  ],
   "main": "./dist/index.js",
   "bin": {
     "json": "./dist/index.js"

@@ -34,11 +34,11 @@ use this command to check where is node installed
 ```
     json (in your terminal)
 ```
-![checking image](image.png)
+![checking image](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image.png)
 
 - If you are getting follwing window you installation process is sucessfull
 
-![alt text](image-1.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-1.png)
 
 # How To Use Each Service
 
@@ -50,17 +50,17 @@ use this command to check where is node installed
 - Choose any one of the service as per you requirement
 
 **Important : Please use proper file extention for proper result**
-![alt text](image-1.png)
-![alt text](image-3.png)
-![alt text](image-4.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-1.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-3.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-4.png)
 **Your destination file should conatin with empty array **[]****
 
-![alt text](image-5.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-5.png)
 - You can create file where ever you want.
 
 ### You Done! 
-![alt text](image-6.png)
-![alt text](image-8.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-6.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
 
 
 
@@ -77,26 +77,23 @@ use this command to check where is node installed
 
 ### STEP1: Source .json File looks like
 
-![alt text](image-8.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
 
 ### STEP2: property to add .json file like. 
 
-![alt text](image-9.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-9.png)
 
 ### STEP3:  
-![alt text](image.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image.png)
 
 ### STEP4:  
-![alt text](image-10.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-10.png)
 
 ### STEP5:  
-![alt text](image-12.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-12.png)
 
 ### STEP6:  
-![alt text](image-11.png)
-
-### STEP7:
-![alt text](image-13.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-13.png)
 
 
 
@@ -111,16 +108,16 @@ use this command to check where is node installed
 
 ### STEP1: Source .json File looks like
 
-![alt text](image-8.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
 
 ### STEP3:  
-![alt text](image.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image.png)
 
 ### STEP4:  
-![alt text](image-14.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-14.png)
 
 ### STEP5:  
-![alt text](image-16.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-16.png)
 
 
 ## Remove Property From Json File 
@@ -134,13 +131,13 @@ use this command to check where is node installed
 
 ### STEP1: Source .json File looks like
 
-![alt text](image-8.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
 
 ### STEP3:  
-![alt text](image.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image.png)
 
 ### STEP4:  
-![alt text](image-17.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-17.png)
 
 ### STEP5:  
-![alt text](image-18.png)
+![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-18.png)
