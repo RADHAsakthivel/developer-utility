@@ -1,0 +1,1 @@
+export {filePath} from "./path"

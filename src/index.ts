@@ -1,79 +1,70 @@
 import * as readline from 'readline';
-import * as allOption from './common'
-import * as operationOptionEnum from './common/operation.enum'
-import { getSourcePath } from './json-utils';
+import { coreOperationArray, jsonOperationArray, Json, coreOperation } from './common';
+import { addPropertyToJsonObject, convertCsvToJson, deleteProperty } from './json-utils';
 import { duConsole } from './console/console';
 import { color } from './colors';
+import { processOn, processOff, keyPressExit, processExit, StdinEvents } from './common';
+import { renderOptions } from './helper';
+import { handleKeyPress } from './helper';
+import EventEmitter from 'events';
 
-let currentOperation: string[] = allOption.coreOperation;
-let firstLayerOperation: string;
-let secondLayerOperation: string;
-let selected: number = 0;
+// State Management
+let currentOperation: string[] = jsonOperationArray;
+let selectedIndex: number = 0;
+const keyPressEventReciver = new EventEmitter();
 
+// Initialize Readline for capturing keypress events
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) process.stdin.setRawMode(true);
 
-export function main(){
-  const renderOptions = (options: string[]) => {
-    console.clear();
-    if (firstLayerOperation) console.log(firstLayerOperation)
-    options.forEach((option, index) => {
-      if (index === selected) {
-        duConsole.log(color.blue,`> ${option}`)
-      } else {
-        duConsole.log(color.white,`  ${option}`)
-      }
-    });
-  };
-  
-  const keyPress = (chunk: any, key: any) => {
-    if (key.name == 'up') {
-      selected = (selected === 0) ? currentOperation.length - 1 : selected - 1;
-      renderOptions(currentOperation);
-    } else if (key.name == 'down') {
-      selected = (selected === currentOperation.length - 1) ? 0 : selected + 1;
-      renderOptions(currentOperation);
-    } else if (key.name == 'return') {
-      if (firstLayerOperation == undefined) {
-        firstLayerOperation = currentOperation[selected];
-        assignCurrentOperation(firstLayerOperation);
-        renderOptions(currentOperation);
-      } else if (secondLayerOperation == undefined) {
-        secondLayerOperation = currentOperation[selected];
-        handleSecondLayerOperation();
-      }
-    }
+// Main entry point
+export function main(): void {
+  keyPressEventReciver.on('keyNavigate', (currentIndex: any) => {
+    selectedIndex = currentIndex
+  })
+  setupKeyPressListeners();
+  renderOptions(currentOperation, 0);
+}
+
+function keyPress(chunk: any, key: any) {
+  handleKeyPress(key, selectedIndex, currentOperation, keyPressEventReciver, ()=>{
+    executeJsonOperation(currentOperation[selectedIndex])
+  })
+}
+
+function setupKeyPressListeners(): void {
+  processOn(StdinEvents.keypress, keyPress);
+  processOn(StdinEvents.keypress, keyPressExit);
+}
+
+function executeJsonOperation(operation: string): void {
+  processOff(StdinEvents.keypress, keyPress);
+  console.clear();
+  switch (operation) {
+    case Json.csvToJson:
+      duConsole.log(color.blue,operation);
+      convertCsvToJson();
+      break;
+    case Json.addPropertys:
+      duConsole.log(color.blue,operation);
+      addPropertyToJsonObject(operation);
+      break;
+    case Json.addUuid:
+      duConsole.log(color.blue,operation);
+      addPropertyToJsonObject(operation);
+      break;
+    case Json.deleteProperty:
+      duConsole.log(color.blue,operation);
+      deleteProperty();
+      break;
+    default:
+      console.log(operation);
+      showUnderDevelopmentWarning();
+      processExit();
   }
-  
-  const handleSecondLayerOperation = (): void => {
-    console.clear();
-    console.log(firstLayerOperation);
-    if (secondLayerOperation === operationOptionEnum.Json.csvToJson) {
-      console.log(secondLayerOperation);
-      process.stdin.off('keypress', keyPress);
-      getSourcePath();
-    }else{
-      duConsole.log(color.bgYellow,"Currently selected service is under development")
-      process.stdin.off('keypress', keyPress);
-    }
-  }
-  
-  const assignCurrentOperation = (selectedOperation: string): void => {
-    switch (selectedOperation) {
-      case operationOptionEnum.coreOperation.json:
-        currentOperation = allOption.jsonOperation;
-        break;
-    }
-  }
-  
-  const close = (chunk:any,key:any)=>{
-    if(key.ctrl === true && key.name === 'c'){
-      process.stdin.off('keypress', close);
-      process.exit();
-    }
-  }
-  
-  renderOptions(currentOperation);
-  process.stdin.on('keypress', keyPress);
-  process.stdin.on('keypress', close);
+}
+
+function showUnderDevelopmentWarning(): void {
+  const warningSymbol = '\u26A0';
+  duConsole.log(color.yellow, `${warningSymbol} Currently selected service is under development`);
 }

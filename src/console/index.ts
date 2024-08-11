@@ -1,1 +1,1 @@
-import * as DuConsole from "./console";
+export { duConsole } from "./console";

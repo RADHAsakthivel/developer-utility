@@ -1,13 +1,12 @@
 import fs from "fs";
-import readLine from "readline";
-import * as readterminal from 'readline';
-import {filePath} from '../common/common';
-import { createFile } from "./create-file";
+import * as readLine from 'readline';
+import { createFile } from "../../common/create-file/create-file";
+import { duConsole } from "../../console";
 
 let headding:string[];
 let isEmptyFile = true;
 
-function convertCsvToJson(sourcePath:string,destinationPath:string){
+export function convertCsvToJson(sourcePath:string,destinationPath:string){
   const readStream = fs.createReadStream(sourcePath, "utf8");
   const rl = readLine.createInterface({
     input: readStream,
@@ -24,14 +23,12 @@ function convertCsvToJson(sourcePath:string,destinationPath:string){
       }
     }
     else if (line) {
-      let fd = fs.openSync(destinationPath, 'r+');
       try {
         let currentObject = Object.fromEntries(
           headding.map((e, i) => [e, currentLine[i]])
         );
         const newObjStr = JSON.stringify(currentObject, null, 2);
         const dataToAppend = isEmptyFile ? `\n${newObjStr}\n` : `,\n${newObjStr}\n`;
-        console.log('dataToAppend =>', dataToAppend);
         fs.appendFileSync(destinationPath, dataToAppend, { flag: 'a+' });
         isEmptyFile = false;
       } catch (e) {
@@ -41,32 +38,7 @@ function convertCsvToJson(sourcePath:string,destinationPath:string){
   });
   
   rl.on('close', () => {
+    duConsole.sucess(`sucessfully converted csv to json Result are avilable on : ${destinationPath}`);
     fs.appendFileSync(destinationPath, ']', { flag: 'a+' });
-  })
-}
-
-export function getSourcePath():void{
-  const rl: readterminal.Interface = readterminal.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal:true
-  });
-  rl.question('Enter the source file path:',(path)=>{
-    filePath.sourceDirectory = path;
-    console.log("solution")
-    rl.close();
-    getDestinationPath();
-  })
-}
-
-export function getDestinationPath():void{
-  const rl: readterminal.Interface = readterminal.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal:true
-  });
-  rl.question('Enter the destination file path:',(path)=>{
-    filePath.destinationDirectory = path;
-    convertCsvToJson(filePath.sourceDirectory,filePath.destinationDirectory)
   })
 }
