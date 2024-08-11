@@ -53,7 +53,7 @@ export async function getFilelocations(isUuidRequired: boolean = false) {
       (input,rl,signal,res,rej)=>{
           if (input === "N" || input === 'n') {
             rl.close();
-            rej(false);
+            res(false);
           } else {
             rl.close();
             res(true)

@@ -1,6 +1,7 @@
 import fs from "fs";
 import * as readLine from 'readline';
 import { createFile } from "../../common/create-file/create-file";
+import { duConsole } from "../../console";
 
 let headding:string[];
 let isEmptyFile = true;
@@ -22,12 +23,10 @@ export function convertCsvToJson(sourcePath:string,destinationPath:string){
       }
     }
     else if (line) {
-      let fd = fs.openSync(destinationPath, 'r+');
       try {
         let currentObject = Object.fromEntries(
           headding.map((e, i) => [e, currentLine[i]])
         );
-        console.log("currentObject =>",currentObject)
         const newObjStr = JSON.stringify(currentObject, null, 2);
         const dataToAppend = isEmptyFile ? `\n${newObjStr}\n` : `,\n${newObjStr}\n`;
         fs.appendFileSync(destinationPath, dataToAppend, { flag: 'a+' });
@@ -39,6 +38,7 @@ export function convertCsvToJson(sourcePath:string,destinationPath:string){
   });
   
   rl.on('close', () => {
+    duConsole.sucess(`sucessfully converted csv to json Result are avilable on : ${destinationPath}`);
     fs.appendFileSync(destinationPath, ']', { flag: 'a+' });
   })
 }

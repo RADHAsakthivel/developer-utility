@@ -1,4 +1,5 @@
 import readLine from "readline";
+import { color } from "../../colors";
 
 
 export function getInput<T>(
@@ -23,7 +24,7 @@ export function getInput<T>(
 
     return new Promise<T>((resolve, reject) => {
         const executeGet = () => {
-            rl.question(question, { signal }, (path) => {
+            rl.question(`${color.magenta} ${question} ${color.reset}`, { signal }, (path) => {
                 callBack(path, rl, signal, resolve, reject, executeGet);
             })
         }

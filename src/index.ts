@@ -9,9 +9,7 @@ import { handleKeyPress } from './helper';
 import EventEmitter from 'events';
 
 // State Management
-let currentOperation: string[] = coreOperationArray;
-let firstLayerOperation: string | undefined;
-let secondLayerOperation: string | undefined;
+let currentOperation: string[] = jsonOperationArray;
 let selectedIndex: number = 0;
 const keyPressEventReciver = new EventEmitter();
 
@@ -25,11 +23,13 @@ export function main(): void {
     selectedIndex = currentIndex
   })
   setupKeyPressListeners();
-  renderOptions(currentOperation, 0, firstLayerOperation);
+  renderOptions(currentOperation, 0);
 }
 
 function keyPress(chunk: any, key: any) {
-  handleKeyPress(key, selectedIndex, currentOperation, keyPressEventReciver, handleSelection)
+  handleKeyPress(key, selectedIndex, currentOperation, keyPressEventReciver, ()=>{
+    executeJsonOperation(currentOperation[selectedIndex])
+  })
 }
 
 function setupKeyPressListeners(): void {
@@ -37,64 +37,30 @@ function setupKeyPressListeners(): void {
   processOn(StdinEvents.keypress, keyPressExit);
 }
 
-function handleSelection(): void {
-  if (!firstLayerOperation) {
-    firstLayerOperation = currentOperation[selectedIndex];
-    handleFirstLayerSelection();
-  } else if (!secondLayerOperation) {
-    secondLayerOperation = currentOperation[selectedIndex];
-    handleSecondLayerOperation();
-  }
-}
-
-function handleFirstLayerSelection(): void {
-  if (firstLayerOperation && firstLayerOperation !== coreOperation.json) {
-    showUnderDevelopmentWarning();
-    processExit();
-  }
-  assignCurrentOperation(firstLayerOperation);
-  renderOptions(currentOperation, 0);
-}
-
-function handleSecondLayerOperation(): void {
-  console.clear();
-  console.log(firstLayerOperation);
-  if (firstLayerOperation === coreOperation.json && secondLayerOperation) {
-    executeJsonOperation(secondLayerOperation);
-  } else {
-    showUnderDevelopmentWarning();
-    processExit();
-  }
-}
-
 function executeJsonOperation(operation: string): void {
   processOff(StdinEvents.keypress, keyPress);
+  console.clear();
   switch (operation) {
     case Json.csvToJson:
-      console.log(operation);
+      duConsole.log(color.blue,operation);
       convertCsvToJson();
       break;
     case Json.addPropertys:
-      console.log(operation);
+      duConsole.log(color.blue,operation);
       addPropertyToJsonObject(operation);
       break;
     case Json.addUuid:
-      console.log(operation);
+      duConsole.log(color.blue,operation);
       addPropertyToJsonObject(operation);
       break;
     case Json.deleteProperty:
-      console.log(operation);
+      duConsole.log(color.blue,operation);
       deleteProperty();
       break;
     default:
+      console.log(operation);
       showUnderDevelopmentWarning();
       processExit();
-  }
-}
-
-function assignCurrentOperation(selectedOperation: string | undefined): void {
-  if (selectedOperation === coreOperation.json) {
-    currentOperation = jsonOperationArray;
   }
 }
 

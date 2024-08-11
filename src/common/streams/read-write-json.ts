@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Stream } from 'stream';
 import * as fs from 'fs';
 import { createTempFile } from '../../helper';
+import { duConsole } from '../../console';
 const es = require('event-stream');
 const {parse ,stringify} = require('JSONStream')
 
@@ -33,21 +34,21 @@ export function readWriteStream(
         if (!requireSeparateFile) {
             fs.rename(tempFilePath, soucePath, err => {
                 if (err) {
-                    console.error('Error renaming the file:', err);
+                    duConsole.error('Error renaming the file:', err);
                     return;
                 }
-                console.log(`Your changes are Updated in ${soucePath}`);
+                duConsole.sucess(`Your changes are Updated in ${soucePath}`);
             });
         } else {
-            console.log(`your changes are updated in ${tempFilePath}`)
+            duConsole.sucess(`your changes are updated in ${tempFilePath}`)
         }
     });
 
     writeStream.on('error', err => {
-        console.error('Error writing the file:', err);
+        duConsole.error('Error writing the file:', err);
     });
 
     readStream.on('error', err => {
-        console.error('Error reading the file:', err);
+        duConsole.error('Error reading the file:', err);
     });
 }
