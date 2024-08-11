@@ -1,6 +1,6 @@
 {
   "name": "developer-utility",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package is used to convert the csv to json and add,remove data from json file",
   "keywords": [
     "json",
