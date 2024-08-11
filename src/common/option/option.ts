@@ -9,10 +9,8 @@ import {
 export const jsonOperationArray:string[] = [
     JsonEnum.csvToJson,
     JsonEnum.addPropertys,
-    JsonEnum.addSingleProperty,
     JsonEnum.addUuid,
     JsonEnum.deleteProperty,
-    JsonEnum.editProperty
 ]
 
 export const coreOperationArray:string[] = [

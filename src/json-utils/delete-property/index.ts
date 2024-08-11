@@ -13,6 +13,7 @@ export async function main() {
             "Enter property name to delete : ",
             (input, rl, signal, res, rej, parent) => {
                 if (input.length) {
+                    rl.close();
                     return res(input);
                 } else {
                     console.log("Invalid formate please type valid property name");

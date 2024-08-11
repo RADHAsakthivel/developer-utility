@@ -1,10 +1,8 @@
 export enum Json {
     csvToJson = "convert csv to json",
     addPropertys = "Add property's to object in json file",
-    addSingleProperty = "Add single property to every object",
     addUuid = "Insert UUID to every object",
     deleteProperty = "Remove property from object in json file",
-    editProperty = "Edit property from object in json file"
 }
 
 export enum coreOperation{
