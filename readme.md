@@ -1,162 +1,127 @@
-# Index!
+Your documentation is clear and informative, but it could benefit from a few tweaks to improve readability and consistency. Here are some suggestions to enhance your format:
 
-- Hi! This library help you to convert the `CSV` file to `JSON` file.
-- This package is specially made for **developer** and those who familier with command line interface and terminal.
-- you will be allways using **terminal**.
+### Index
 
-# PreRequestes
-- You requested to install follwing software in you sysytem to use this package
-- **Node (v20.12.2)** [click here to install node](https://nodejs.org/en/download/package-manager)
+- **Introduction:** This library helps you convert CSV files to JSON files.
+- **Target Audience:** This package is designed for developers and those familiar with the command line interface and terminal.
+- **Reporting Issues:** If you encounter bugs or have ideas, email sakthiv9819@gmail.com. You can also implement features and create pull requests.
 
+### Prerequisites
 
-# Guide Line To Install Package
-- once you install node (v20.12.2) Then you install this package using following command
-``` 
-npm instal developer-utility 
-```
-- After complition of install you can find the **dev-utils** package in **node-modules** in you global node package. 
+- **Software Required:** Install Node.js (v20.12.2). [Click here to install Node.js](https://nodejs.org/en/download/package-manager).
 
-<!-- ```
-use this command to check where is node installed
-    
-    which node
-    which npm
+### Installation Guide
 
-     (or)
-    
-    whereis node
-    whereis npm
-``` -->
+1. **Install the Package:** After installing Node.js, install the package using the following command:
 
-# How To Use Package
-- Once you are done with installtion procedure you can run
-```
-json (in your terminal)
-```
+   ```bash
+   npm install developer-utility
+   ```
 
-- If you are getting follwing window you installation process is sucessfull
+2. **Locate the Package:** After installation, you can find the `dev-utils` package in the `node_modules` directory of your global Node.js packages.
 
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-1.png)
+### How to Use the Package
 
-# How To Use Each Service
+1. **Run the Command:**
 
-## Convert CSV to JSON 
-```
-    Source file : .csv ( absolute csv file path which to convert )
-    Destination File : .json ( Your empty json file path )
-```
-<!-- **Table for field name and it's description**
-| Field Name                  | Description                            | File Type |
-| ----------------------------| ---------------------------------------|-----------|
-| Source file path            | absolute csv file path which to convert| . CSV      |
-| Enter the destination path  | Your empty json file path              | . JSON     | -->
+   ```bash
+   json
+   ```
 
+2. **Successful Installation:** If you see the following window, your installation was successful:
 
-**Important : Please use proper file extention for proper result**
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-1.png)
-<!-- ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-3.png)
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-4.png) -->
+   ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-1.png)
 
+### How to Use Each Service
 
-**Before converting any csv create an empty JSON file with empty Array [ ]**
+#### Convert CSV to JSON
 
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-5.png)
-- You can create file where ever you want.
+- **Source File:** `.csv` (absolute path to the CSV file to convert)
+- **Destination File:** `.json` (path to your empty JSON file)
 
-- Once you entered the detaion hit enter you will be getting following message
-<!-- ### You Done!  -->
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-6.png)
+  **Important:** Ensure the destination file has the proper `.json` extension and starts as an empty array `[ ]`.
 
-### You can see the parsed data sotred in you newly created json
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
+  ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-5.png)
 
+- **After Conversion:** Once you enter the details, you'll see a success message:
 
+  ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-6.png)
 
-## Add Property To Json File 
-- You can Add Property in existing json file (Array of Object) .
-- You have create file which contain's property to add in source file.
+  The parsed data will be stored in your newly created JSON file:
 
-```
-    Source file : .json (Your json file path with data)
-    Poperty to add file : .json (Your json file path with property to add)
-```
+  ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
 
-**Important : You can add propety by .json file only**
+#### Add Property to JSON File
 
-### STEP1: Source .json File looks like
+- **Source File:** `.json` (Your existing JSON file with data)
+- **Property to Add File:** `.json` (Your JSON file with properties to add)
 
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
+  **Important:** Properties must be specified in a `.json` file.
 
-### STEP2: property to add .json file like. 
+- **Steps:**
 
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-9.png)
+  1. **Source JSON File:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
+  
+  2. **Property to Add File:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-9.png)
 
-### STEP3:  
-<!-- ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image.png) -->
+  3. **Run the Command:**
 
-```
-Enter JSON ( in you terminal )
-```
+     ```bash
+     json
+     ```
 
-### STEP4:  
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-10.png)
+  4. **Success Message:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-10.png)
 
-<!-- ### STEP5:  
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-12.png) -->
+  5. **Updated JSON File:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-13.png)
 
-### STEP5:  
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-13.png)
+#### Add UUID to JSON File
 
+- **Source File:** `.json` (Your JSON file with data)
 
+  **Important:** Properties must be specified in a `.json` file.
 
-## Add UUID To Json File 
-- You can Add UUID in existing json file (Array of Object) .
+- **Steps:**
 
-```
-    Source file : .json (your json file path wich having data )
-```
+  1. **Source JSON File:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
+  
+  2. **Run the Command:**
 
-**Important : You can add propety by .json file only**
+     ```bash
+     json
+     ```
 
-### STEP1: Source .json File looks like
+  3. **Success Message:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-14.png)
 
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
+  4. **Updated JSON File:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-16.png)
 
-### STEP2:  
-<!-- ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image.png) -->
-```
-Type json ( in your terminal )
-```
+#### Remove Property from JSON File
 
-### STEP3:  
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-14.png)
+- **Source File:** `.json` (Your JSON file with properties to remove)
 
-### STEP4:  
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-16.png)
+  **Important:** Properties must be specified in a `.json` file.
 
+- **Steps:**
 
-## Remove Property From Json File 
-- You can Remove property from in existing .json file (Array of Object) .
+  1. **Source JSON File:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
+  
+  2. **Run the Command:**
 
-```
-    Source file : .json (Your json file with path which having peroperty)
-```
+     ```bash
+     json
+     ```
 
-**Important : You can add propety by .json file only**
+  3. **Success Message:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-17.png)
 
-### STEP1: Source .json File looks like
+  4. **Updated JSON File:**
+     ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-18.png)
 
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-8.png)
-
-### STEP2:  
-<!-- ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image.png) -->
-
-```
-    Source file : .json (Your json file with path which having peroperty)
-```
-
-### STEP3:  
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-17.png)
-
-### STEP4:  
-![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-18.png)
+---
