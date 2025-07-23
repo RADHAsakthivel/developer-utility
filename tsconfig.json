@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "CommonJS",
+    "target": "ES2022",
+    "module": "Node16",
+    "rootDir": "./src",
     "outDir": "./dist",
-    "rootDir": "./",
-    "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node16"
   },
-  "type":"CommonJS",
-  "include": ["src/**/*","src/*","./*.ts"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }
