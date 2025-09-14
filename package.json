@@ -1,6 +1,6 @@
 {
   "name": "developer-utility",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A console application for developer utilities (TypeScript, functional).",
   "main": "dist/app.js",
   "keywords": ["json","csv","comma seperated file","csv to json","convert csv to json","edit json","add json property","edite json","delete json property","typescript"],
