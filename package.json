@@ -1,45 +1,38 @@
 {
   "name": "developer-utility",
-  "version": "1.0.2",
-  "description": "This package is used to convert the csv to json and add,remove data from json file",
-  "keywords": [
-    "json",
-    "csv",
-    "comma seperated file",
-    "csv to json",
-    "convert csv to json",
-    "edit json",
-    "add json property",
-    "edite json",
-    "delete json property",
-    "typescript"
-  ],
-  "main": "./dist/index.js",
+  "version": "1.2.0",
+  "description": "A console application for developer utilities (TypeScript, functional).",
+  "main": "dist/app.js",
+  "keywords": ["json","csv","comma seperated file","csv to json","convert csv to json","edit json","add json property","edite json","delete json property","typescript"],
+  "type": "module",
+  "files": ["dist"],
   "bin": {
-    "json": "./dist/index.js"
+    "json": "dist/app.js"
   },
   "scripts": {
-    "prepare": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "node ./dist/index.js",
+    "postbuild": "shx chmod +x dist/app.js",
+    "prepare": "npm run build",
+    "start": "node dist/app.js",
+    "dev": "tsc --watch & node --watch dist/app.js",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "author": "sakthivel",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "@types/jsonstream": "^0.8.33",
-    "event-stream": "^4.0.1",
-    "jsonstream": "^1.0.3",
-    "JSONStream": "^1.3.5",
+    "csv-parser": "^3.0.0",
+    "inquirer": "^9.2.23",
+    "json-2-csv": "^4.1.1",
+    "qrcode": "^1.5.3",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@types/jsonstream": "0.8.30",
-    "@types/node": "^22.0.0",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.14.10",
+    "@types/qrcode": "^1.5.5",
     "@types/uuid": "^10.0.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.3",
+    "shx": "^0.3.4"
   }
 }

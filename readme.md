@@ -1,10 +1,25 @@
-Your documentation is clear and informative, but it could benefit from a few tweaks to improve readability and consistency. Here are some suggestions to enhance your format:
+# Developer Utility
 
-### Index
+A cross-platform CLI for working with JSON and CSV files.
 
-- **Introduction:** This library helps you convert CSV files to JSON files.
-- **Target Audience:** This package is designed for developers and those familiar with the command line interface and terminal.
-- **Reporting Issues:** If you encounter bugs or have ideas, email sakthiv9819@gmail.com. You can also implement features and create pull requests.
+> Convert CSV ↔ JSON, add/remove properties, and more — all from the command line.
+
+## Index
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Services](#services)
+- [License](#license)
+
+### Introduction
+This tool helps developers manipulate JSON and CSV data directly from the terminal.
+
+### Target Audience
+Developers or anyone comfortable with the command line.
+
+### Reporting Issues
+Found a bug or want to propose a feature? Open an issue or email **sakthiv9819@gmail.com**.
 
 ### Prerequisites
 
@@ -15,7 +30,7 @@ Your documentation is clear and informative, but it could benefit from a few twe
 1. **Install the Package:** After installing Node.js, install the package using the following command:
 
    ```bash
-   npm install developer-utility
+   npm install -g developer-utility
    ```
 
 2. **Locate the Package:** After installation, you can find the `dev-utils` package in the `node_modules` directory of your global Node.js packages.
