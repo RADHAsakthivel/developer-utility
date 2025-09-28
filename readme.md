@@ -40,12 +40,29 @@ Found a bug or want to propose a feature? Open an issue or email **sakthiv9819@g
 1. **Run the Command:**
 
    ```bash
-   json
+   dev
    ```
 
 2. **Successful Installation:** If you see the following window, your installation was successful:
 
-   ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-1.png)
+   ```
+   ██████╗ ███████╗██╗   ██╗     ██████╗██╗     ██╗
+   ██╔══██╗██╔════╝██║   ██║    ██╔════╝██║     ██║
+   ██║  ██║█████╗  ██║   ██║    ██║     ██║     ██║
+   ██║  ██║██╔══╝  ╚██╗ ██╔╝    ██║     ██║     ██║
+   ██████╔╝███████╗ ╚████╔╝     ╚██████╗███████╗██║
+   ╚═════╝ ╚══════╝  ╚═══╝       ╚═════╝╚══════╝╚═╝
+                                                   
+   Developer-utility CLI
+
+   ? Select a utility: (Use arrow keys)
+   ❯  JSON Manipulation 
+      QR Code Generation 
+      UUID Generation 
+      Directory Tree 
+      Password Utility (Placeholder) 
+      Exit
+   ```
 
 ### How to Use Each Service
 
@@ -54,9 +71,7 @@ Found a bug or want to propose a feature? Open an issue or email **sakthiv9819@g
 - **Source File:** `.csv` (absolute path to the CSV file to convert)
 - **Destination File:** `.json` (path to your empty JSON file)
 
-  **Important:** Ensure the destination file has the proper `.json` extension and starts as an empty array `[ ]`.
-
-  ![alt text](https://raw.githubusercontent.com/RADHAsakthivel/images/main/dev-utility/image-5.png)
+  **Important:** You can have a .json file with name else dev-cli will create directory and file for given path
 
 - **After Conversion:** Once you enter the details, you'll see a success message:
 
@@ -84,7 +99,7 @@ Found a bug or want to propose a feature? Open an issue or email **sakthiv9819@g
   3. **Run the Command:**
 
      ```bash
-     json
+     dev
      ```
 
   4. **Success Message:**
@@ -107,7 +122,7 @@ Found a bug or want to propose a feature? Open an issue or email **sakthiv9819@g
   2. **Run the Command:**
 
      ```bash
-     json
+     dev
      ```
 
   3. **Success Message:**
@@ -130,7 +145,7 @@ Found a bug or want to propose a feature? Open an issue or email **sakthiv9819@g
   2. **Run the Command:**
 
      ```bash
-     json
+     dev
      ```
 
   3. **Success Message:**
