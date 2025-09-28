@@ -1,5 +1,6 @@
 import inquirer from "inquirer"
 import { BaseUtility } from "./base-utility.js"
+import { showBanner } from "./shared/banner.js"
 
 export class Menu {
   public utilities: Record<string, BaseUtility>
@@ -9,9 +10,16 @@ export class Menu {
 
   async start() {
     let running = true
+    let initialRun = true
     while (running) {
+
       console.clear()
-      console.log("--- Developer Utility Core ---")
+      
+      if(initialRun) {
+        showBanner()
+        initialRun = false
+      }
+      
       const choices = [...Object.keys(this.utilities), "Exit"];
 
       const { selectedUtility } = await inquirer.prompt({
